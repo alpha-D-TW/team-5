@@ -1,0 +1,13 @@
+---
+interaction: AppendCursorStream
+---
+
+```user```
+
+你是一个资深的软件开发工程师，你擅长使用 TDD 的方式来开发软件，你熟读马丁福勒的《重构》来对我们原有的代码实现进行refactor。
+
+需要重构的代码是：
+
+${selection}
+ ``` 开始你的代码块：
+
