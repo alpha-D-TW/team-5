@@ -3,9 +3,23 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain.tools import StructuredTool
+from langchain_core.runnables.history import RunnableWithMessageHistory
 
 st.set_page_config(page_title="Team 5", page_icon="📖")
 st.title('🦜🔗 产品名称-占位')
+
+# key
+MEMORY_KEY = "chat_history"
+INPUT_KEY = "question"
+
+from langchain_community.chat_message_histories import StreamlitChatMessageHistory
+
+# Set up memory
+msgs = StreamlitChatMessageHistory(key="langchain_messages")
+if len(msgs.messages) == 0:
+    msgs.add_ai_message("How can I help you?")  # 这里可以加开场白
+
+view_messages = st.expander("View the message contents in session state")
 
 # Get an OpenAI API Key before continuing
 if "openai_api_key" in st.secrets:
@@ -35,17 +49,16 @@ def multiply(number1: float, number2: float) -> str:
     return f'{number1}乘以{number2}的结果是{result}'
 
 
+# Set up the LangChain, passing in Message History
 agent_prompt = ChatPromptTemplate.from_messages([
-    ("system", "You are helpful assistant, answer me using a friendly tone, and add some emoji in answer"),
-    ("user", "{input}"),
-    MessagesPlaceholder(variable_name="agent_scratchpad")
+    ("ai", "You are an AI chatbot having a conversation with a human."),
+    MessagesPlaceholder(variable_name=MEMORY_KEY),
+    ("human", f"{INPUT_KEY}"),
+    MessagesPlaceholder(variable_name="agent_scratchpad"),
+    # https://python.langchain.com/docs/modules/agents/how_to/custom_agent#adding-memory
 ])
 
-llm = ChatOpenAI(openai_api_key=openai_api_key, model='gpt-3.5-turbo',
-                 temperature=0, streaming=False)
-
-# client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-# client = OpenAI(api_key=openai_api_key)
+llm = ChatOpenAI(openai_api_key=openai_api_key, model='gpt-3.5-turbo', temperature=0, streaming=True)
 
 agent_tools = [StructuredTool.from_function(func=add, name="add", description="Call this to get the summary"),
                StructuredTool.from_function(func=multiply, name="multiply", description="Call this to get the product"),
@@ -55,36 +68,38 @@ agent_tools = [StructuredTool.from_function(func=add, name="add", description="C
 agent = create_openai_tools_agent(llm, agent_tools, agent_prompt)
 agent_executor = AgentExecutor(agent=agent, tools=agent_tools, verbose=True)
 
-if "openai_model" not in st.session_state:
-    st.session_state["openai_model"] = "gpt-3.5-turbo"
+chain_with_history = RunnableWithMessageHistory(
+    agent_executor,
+    lambda session_id: msgs,
+    input_messages_key=INPUT_KEY,
+    history_messages_key=MEMORY_KEY,
+)
 
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+# Render current messages from StreamlitChatMessageHistory
+for msg in msgs.messages:
+    st.chat_message(msg.type).write(msg.content)
 
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
+# If user inputs a new prompt, generate and draw a new response
 if prompt := st.chat_input("What is up?"):
-    st.session_state.messages.append({"role": "user", "content": prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    st.chat_message("human").write(prompt)
+    print(prompt)
+    config = {"configurable": {"session_id": "any"}}
+    stream = chain_with_history.invoke({f"{INPUT_KEY}": prompt}, config)
+    print("stream is: ")
+    print(stream)
+    print(stream['output'])
+    output_value = stream['output']
+    output_iterable = [output_value]
+    st.chat_message("ai").write_stream(output_iterable)
 
-    with st.chat_message("assistant"):
-        # stream = client.chat.completions.create(
-        #     model=st.session_state["openai_model"],
-        #     messages=[
-        #         {"role": m["role"], "content": m["content"]}
-        #         for m in st.session_state.messages
-        #     ],
-        #     stream=True,
-        # )
-        print(st.session_state.messages[0]['content'])
-        stream = agent_executor.invoke({"input": prompt})
-        print("stream is: ")
-        print(stream)
-        print(stream['output'])
-        output_value = stream['output']
-        output_iterable = [output_value]
-        response = st.write_stream(output_iterable)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+# Draw the messages at the end, so newly generated ones show up immediately
+with view_messages:
+    """
+    Message History initialized with:
+    ```python
+    msgs = StreamlitChatMessageHistory(key="langchain_messages")
+    ```
+
+    Contents of `st.session_state.langchain_messages`:
+    """
+    view_messages.json(st.session_state.langchain_messages)
