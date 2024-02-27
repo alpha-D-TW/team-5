@@ -7,11 +7,10 @@ def filter_data(data, regex_pattern):
     filtered_data = []
     regex = re.compile(regex_pattern)
     for item in data:
-        print(33333, item)
         # 判断 item 是否匹配正则表达式
         if regex.match(json.dumps(item, ensure_ascii=False)):
             filtered_data.append(item)
-    print(44, filtered_data)
+    print(f"正则过滤后的数据共有{len(filtered_data)}条")
     return filtered_data
 
 
@@ -24,6 +23,7 @@ def deduplicate_by_title(json_data):
         if title and title not in unique_titles:
             unique_titles.add(title)
             deduplicated_data.append(entry)
+    print(f"去重后的数据共有{len(deduplicated_data)}条")
     return deduplicated_data
 
 
@@ -39,12 +39,13 @@ def merge_json_files(directory, output_file, regex_pattern=None):
             with open(file_path, 'r', encoding='utf-8') as file:
                 file_data = json.load(file)
                 all_data.extend(file_data)
+    print(f"原始数据共有{len(all_data) }条")
 
     # 如果提供了正则表达式模式，则进行数据过滤
-    print(444, regex_pattern)
+    print(f"使用的正则规则是{regex_pattern}")
+
     if regex_pattern:
         all_data = filter_data(all_data, regex_pattern)
-    print(345, len(all_data))
     deduplicated_data = deduplicate_by_title(all_data)
     # 将合并后的数据写入新的json文件
     with open(output_file, 'w', encoding='utf-8') as output:
