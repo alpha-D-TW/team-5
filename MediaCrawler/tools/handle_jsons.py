@@ -1,7 +1,7 @@
 import json
 import os
 import re
-
+import datetime
 
 def filter_data(data, regex_pattern):
     filtered_data = []
@@ -54,10 +54,10 @@ def merge_json_files(directory, output_file, regex_pattern=None):
 
 if __name__ == "__main__":
     # 设置目录、输出文件名和正则表达式模式（可选）
-    # directory_path = "xhs"
-    # output_file_path = "regex.json"
-    directory_path = "../data/xhs"  # 注意这里的路径是相对于 summary.py 文件的位置
-    output_file_path = "../data/mergeJsonFile/merge.json"
+    directory_path = "../data/xhs"  # 注意这里的路径是相对于 handle_jsons.py 文件的位置
+    now = datetime.datetime.now()
+    formatted_time = now.strftime("%Y-%m-%d-%H-%M-%S")
+    output_file_path = f"../data/mergeJsonFile/{formatted_time}.json"
     regex_pattern = r'.*(招行|白金卡|招白).*'
 
     # 执行合并操作
