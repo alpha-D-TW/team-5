@@ -58,7 +58,8 @@ if __name__ == "__main__":
     now = datetime.datetime.now()
     formatted_time = now.strftime("%Y-%m-%d-%H-%M-%S")
     output_file_path = f"../data/mergeJsonFile/{formatted_time}.json"
-    regex_pattern = r'.*(招行|白金卡|招白).*'
+    # regex_pattern = r'(?=.*(?:农行|农业银行))(?=.*(?:精粹白|大白)).*' //农业银行
+    regex_pattern = r'(?=.*(?:招行|招商银行))(?=.*(?:经典白|大白|鸟白|白金卡)).*'
 
     # 执行合并操作
     merge_json_files(directory_path, output_file_path, regex_pattern)

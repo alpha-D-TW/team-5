@@ -1,8 +1,8 @@
 # 基础配置
 PLATFORM = "xhs"
-KEYWORDS = "申请体验,下卡,年费,额度"
+KEYWORDS = "申请体验，下卡，年费，额度，卡流程，账单，交易，还款，权益，安全，优惠，积分，补卡，退卡，终止卡片，客户服务，虚假宣传，信用卡活动，信用卡优惠，做任务，活动，礼品，福利待遇，M4+会员，积分，用户满意度，用户投诉，用户推荐，避雷，薅羊毛"
 # KEYWORDS = "开卡流程,账单,交易,还款,权益,安全,优惠,积分,补卡,退卡,终止卡片"
-MAIN = "招行经典白金卡"
+MAIN = "农行精粹白"
 LOGIN_TYPE = "qrcode"  # qrcode or phone or cookie
 COOKIES = ""
 CRAWLER_TYPE = "search"

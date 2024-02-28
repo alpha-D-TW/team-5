@@ -14,7 +14,7 @@ def read_json_to_yaml(json_file_path):
     return yaml_data
 
 # 测试函数
-# json_file_path = "./source-data/zhaoshang-baijin.json"
+# json_file_path = "./source-data/zhaohang-baijin-before.json"
 # yaml_data = read_json_to_yaml(json_file_path)
 # print(yaml_data)
 
