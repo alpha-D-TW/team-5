@@ -7,6 +7,7 @@ from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain.tools import StructuredTool
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import StreamlitChatMessageHistory
+from util import read_json_to_yaml
 
 import pandas as pd
 import numpy as np
@@ -43,13 +44,43 @@ if not openai_api_key:
     st.stop()
 
 
+def power(base: float, exponent: int) -> str:
+    """计算基数的乘方并返回格式化字符串"""
+    result = base ** exponent
+    return f'{base}的{exponent}次方是{result}'
+
+
+def add(number1: float, number2: float) -> str:
+    """计算两个数的加法并返回格式化字符串"""
+    result = number1 + number2
+    return f'{number1}加上{number2}的结果是{result}'
+
+
+def multiply(number1: float, number2: float) -> str:
+    """计算两个数的乘法并返回格式化字符串"""
+    result = number1 * number2
+    return f'{number1}乘以{number2}的结果是{result}'
+
 def dict_to_string(dictionary):
     return json.dumps(dictionary, indent=None)
 
 
-def fetch_data() -> str:
+def fetch_data(name) -> str:
     """返回信用卡相关的用评论数据"""
-    return "用户评论是：" + dict_to_string(data)
+    zhaohang_keywords = ["招行", "招商银行"]
+    nonghang_keywords = ["农行", "农业银行"]
+    print(666,name)
+
+# 判断 name 是否包含招商银行相关关键词
+    if any(keyword in name for keyword in zhaohang_keywords):
+     path = "./source-data/test.json"
+    elif any(keyword in name for keyword in nonghang_keywords):
+     path= "./source-data/test1.json"
+    else:
+     return 'error'
+    data1=read_json_to_yaml(path)
+    print(99999,data1)
+    return "用户评论是：" + str(data1)
 
 
 def draw_plot(data):
@@ -72,12 +103,14 @@ agent_prompt = ChatPromptTemplate.from_messages([
 
 llm = ChatOpenAI(openai_api_key=openai_api_key, model='gpt-3.5-turbo', temperature=0, streaming=True)
 
-agent_tools = [
-    StructuredTool.from_function(func=fetch_data, name="get_data",
-                                 description="可以获取信用卡相关的用评论数据，返回的是json data"),
-    StructuredTool.from_function(func=draw_plot, name="draw_plot",
-                                 description="接受json data 数据画图"),
-]
+agent_tools = [StructuredTool.from_function(func=add, name="add", description="Call this to get the summary"),
+               StructuredTool.from_function(func=multiply, name="multiply", description="Call this to get the product"),
+               StructuredTool.from_function(func=power, name="power", description="Call this to get the power"),
+               StructuredTool.from_function(func=fetch_data, name="get_data",
+                                            description="可以获取信用卡相关的用评论数据"),
+               StructuredTool.from_function(func=draw_plot, name="draw_plot",
+                                            description="接受json data 数据画图"),
+               ]
 
 agent = create_openai_tools_agent(llm, agent_tools, agent_prompt)
 agent_executor = AgentExecutor(agent=agent, tools=agent_tools, verbose=True)

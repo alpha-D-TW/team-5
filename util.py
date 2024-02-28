@@ -8,10 +8,12 @@ def read_json_to_yaml(json_file_path):
       json_file_path: JSON 文件路径
     """
     # 读取 JSON 文件
+    if json_file_path == '':
+        return
     with open(json_file_path, "r", encoding="utf-8") as f:
         json_data = json.load(f)
-    yaml_data = yaml.dump(json_data, default_style='"', allow_unicode=True)
-    return yaml_data
+    # yaml_data = yaml.dump(json_data, default_style='"', allow_unicode=True)
+    return json_data
 
 # 测试函数
 # json_file_path = "./source-data/zhaohang-baijin-before.json"
@@ -50,5 +52,5 @@ def save_json_to_file(json_data, file_name):
     with open(file_path, 'w', encoding='utf-8') as json_file:
       json.dump(combined_data, json_file, ensure_ascii=False, indent=2)
     # 测试函数
-    # file_name= 'test.json'
+    # file_name= 'test1.json'
     # save_json_to_file(json_data, file_name)

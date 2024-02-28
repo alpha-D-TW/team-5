@@ -350,5 +350,23 @@
         "null"
       ]
     }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "体检",
+        "贵宾厅",
+        "酒店"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "10倍积分"
+      ]
+    }
   }
 ]
