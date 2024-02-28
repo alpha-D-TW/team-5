@@ -1,0 +1,354 @@
+[
+  {
+    "Service Guarantee": {
+      "emotion": 0,
+      "reason": [
+        "体检",
+        "贵宾厅",
+        "酒店",
+        "权益",
+        "贵宾"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "10倍积分",
+        "生日",
+        "物业费",
+        "充油卡"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": -1,
+      "reason": [
+        "最大价值",
+        "没刷满"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "6次贵宾厅",
+        "可带人",
+        "1次洗牙",
+        "1次体检",
+        "12次高尔夫练习场"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "1W积分免年费"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 0,
+      "reason": [
+        "其他酒店",
+        "户外徒步路线"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": -1,
+      "reason": [
+        "3600/年"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "可别让我失望"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "微信5倍积分",
+        "兑换机票"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "高尔夫",
+        "酒店",
+        "洗牙",
+        "体检",
+        "机场延误险",
+        "预约看病",
+        "道路救援"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "初次授信额度下的100k"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "生日当天刷💰22240",
+        "生日十倍积分",
+        "副卡也有",
+        "能刷到22240就没压力"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "体检1次",
+        "洗牙1次",
+        "酒店6次贵宾价",
+        "高尔夫12次",
+        "五星级酒店自助餐买一送一",
+        "机场贵宾厅6次"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": -1,
+      "reason": [
+        "非刚性年费3600",
+        "正常刷看似是消费20w能拿1w积分，实际可能需要30w+"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "10倍积分"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": -1,
+      "reason": [
+        "权益没刷满"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "快速下卡",
+        "提升信用额度"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "1W积分免年费",
+        "户头积分4W多"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "6次贵宾厅可带人",
+        "1次洗牙和体检"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": -1,
+      "reason": [
+        "3600/年"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "可别让我失望"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "兑换机票",
+        "预约看病",
+        "道路救援"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "微信5倍积分",
+        "5:1"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "高尔夫",
+        "酒店",
+        "洗牙",
+        "体检",
+        "机场延误险",
+        "道路救援"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "体检",
+        "洗牙",
+        "酒店贵宾价",
+        "高尔夫",
+        "五星级酒店自助餐",
+        "机场贵宾厅"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "生日当天刷",
+        "积分抵扣",
+        "生日十倍积分",
+        "积分换里程"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  }
+]
