@@ -1,0 +1,299 @@
+[
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 0},
+            "RewardsProgram": {"emotion": 0},
+            "CustomerService": {"emotion": 1},
+            "AppUsability": {"emotion": 1},
+            "Benefits": {"emotion": 1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 9,
+            "Strengths": [
+                "问题解决效率高，满意度高",
+                "APP功能齐全，易于管理账户",
+                "权益丰富，特别是旅行保险覆盖广"
+            ],
+            "Opportunities": []
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": -1},
+            "RewardsProgram": {"emotion": -1},
+            "CustomerService": {"emotion": -1},
+            "AppUsability": {"emotion": -1},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 2,
+            "Strengths": [],
+            "Opportunities": [
+                "附加费用不明确，需提高透明度",
+                "奖励点数积累慢",
+                "联系客服等待时间长",
+                "APP界面不友好，操作复杂"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 0},
+            "RewardsProgram": {"emotion": 0},
+            "CustomerService": {"emotion": -1},
+            "AppUsability": {"emotion": -1},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 1,
+            "Strengths": [],
+            "Opportunities": ["客服解决问题效率低", "APP经常出现故障，需要优化"]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 0},
+            "RewardsProgram": {"emotion": 0},
+            "CustomerService": {"emotion": -1},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 6,
+            "Strengths": ["权益丰富，特别是旅行保险覆盖广"],
+            "Opportunities": ["客服解决问题效率低"]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 1},
+            "RewardsProgram": {"emotion": -1},
+            "CustomerService": {"emotion": 1},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 0,
+            "Strengths": [
+                "年费对比同类产品有优势",
+                "24小时客服在线，问题快速解决"
+            ],
+            "Opportunities": [
+                "部分好礼快速兑完，需增加数量"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": -1},
+            "RewardsProgram": {"emotion": 0},
+            "CustomerService": {"emotion": 1},
+            "AppUsability": {"emotion": 1},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 7,
+            "Strengths": [
+                "24小时客服在线，问题快速解决",
+                "界面友好，新用户易上手"
+            ],
+            "Opportunities": [
+                "隐藏费用多，需增加透明度"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 1},
+            "RewardsProgram": {"emotion": -1},
+            "CustomerService": {"emotion": 1},
+            "AppUsability": {"emotion": 1},
+            "Benefits": {"emotion": -1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 9,
+            "Strengths": ["客服24小时在线，解答及时"],
+            "Opportunities": []
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": -1},
+            "RewardsProgram": {"emotion": 1},
+            "CustomerService": {"emotion": 0},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 4,
+            "Strengths": [],
+            "Opportunities": ["权益与实际需求不符，应更个性化", "海外消费手续费高"]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 1},
+            "RewardsProgram": {"emotion": 1},
+            "CustomerService": {"emotion": 0},
+            "AppUsability": {"emotion": -1},
+            "Benefits": {"emotion": 1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 7,
+            "Strengths": [
+                "银联和VISA在同一张卡上，便于国际旅行。",
+                "全年6次机场贵宾厅可额外带1人，补充了其他卡的限制。",
+                "生日十倍积分，有效解决年费问题。"
+            ],
+            "Opportunities": [
+                "App用户体验有待提升，操作不够流畅。",
+                "年费3600元，对部分用户来说偏高，需要更多积分回馈措施。"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": -1},
+            "RewardsProgram": {"emotion": 1},
+            "CustomerService": {"emotion": 1},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 8,
+            "Strengths": [
+                "体检和牙齿护理权益实用，增加了卡片的附加值。",
+                "机场贵宾厅使用方便，增强了旅行体验。",
+                "高尔夫练习场等独特权益，满足特定用户群体需求。"
+            ],
+            "Opportunities": [
+                "下卡过程中客服反馈效率有待提高，存在沟通不畅。",
+                "权益使用存在一定限制，希望能有更灵活的政策。"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": 1},
+            "RewardsProgram": {"emotion": 1},
+            "CustomerService": {"emotion": 0},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 1}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 7,
+            "Strengths": [
+                "线下申请流程高效，一周内成功下卡",
+                "年费通过积分抵扣，用户感受到实惠",
+                "银行app变色升级，提升用户体验"
+            ],
+            "Opportunities": [
+                "初次下卡流程中存在沟通不畅，需优化客户服务体验"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {"emotion": -1},
+            "RewardsProgram": {"emotion": 0},
+            "CustomerService": {"emotion": -1},
+            "AppUsability": {"emotion": 0},
+            "Benefits": {"emotion": 0}
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 3,
+            "Strengths": [],
+            "Opportunities": [
+                "下卡过程不流畅，客户经理服务态度需改善",
+                "年费及积分抵扣政策需更加透明化"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {
+                "emotion": 1
+            },
+            "RewardsProgram": {
+                "emotion": 1
+            },
+            "CustomerService": {
+                "emotion": 1
+            },
+            "AppUsability": {
+                "emotion": -1
+            },
+            "Benefits": {
+                "emotion": 1
+            }
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 8,
+            "Strengths": [
+                "招行信用卡积分规则实用，奖励力度高，特别是生日多倍积分优惠",
+                "经典白提供的权益包括健康、旅行、运动，内容丰富，尤其是旅行方面的贵宾厅和酒店特价优惠受到好评"
+            ],
+            "Opportunities": [
+                "App的使用体验需要改进，用户反馈存在一些问题，例如操作不流畅"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {
+                "emotion": 0
+            },
+            "RewardsProgram": {
+                "emotion": 1
+            },
+            "CustomerService": {
+                "emotion": 0
+            },
+            "AppUsability": {
+                "emotion": 0
+            },
+            "Benefits": {
+                "emotion": 1
+            }
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 8,
+            "Strengths": [
+                "办卡过程顺利，体验良好",
+                "生日当天消费可获得10倍积分，积分政策吸引"
+            ],
+            "Opportunities": [
+                "权益和积分方面的信息需要更多了解和探索"
+            ]
+        }
+    },
+    {
+        "CreditCardExperience": {
+            "CardCosts": {
+                "emotion": 0
+            },
+            "RewardsProgram": {
+                "emotion": 1
+            },
+            "CustomerService": {
+                "emotion": -1
+            },
+            "AppUsability": {
+                "emotion": 0
+            },
+            "Benefits": {
+                "emotion": 0
+            }
+        },
+        "SatisfactionAnalysis": {
+            "SatisfactionScore": 6,
+            "Strengths": [
+                "成功申请到心仪的信用卡，满足了特定群体的需求"
+            ],
+            "Opportunities": [
+                "申请过程中遇到不明原因的拒绝，客户服务沟通可以改进",
+                "更明确的申请条件或解释有助于提升用户体验"
+            ]
+        }
+    }
+]
