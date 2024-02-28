@@ -22,7 +22,7 @@ Output Format: Provide an array of objects in the form:
 
 Only include dimensions that have been analyzed. If the content does not pertain to the "招商银行白金卡," return the message: "The provided info is not related to 招商银行白金卡."
 """
-
+KEY="xxx"
 
 ##load file
 def read_json(json_file_path):
@@ -92,7 +92,7 @@ ChatCompletion(id='chatcmpl-8x75AHAJ9nWfNHuC9j83UVx9EJUnv', choices=[Choice(fini
 ##call openai and get response
 def chat_func(content:dict, prompt:str=None):
     client = OpenAI(
-        api_key="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",
+        api_key=KEY,
     )
     content_str = '\n'.join(d['desc'] for d in content)
 
