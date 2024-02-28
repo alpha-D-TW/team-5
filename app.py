@@ -1,4 +1,5 @@
 import json
+import yaml
 
 import streamlit as st
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
@@ -47,6 +48,7 @@ def multiply(number1: float, number2: float) -> str:
 
 def dict_to_string(dictionary):
     return json.dumps(dictionary, indent=None)
+
 
 def fetch_data() -> str:
     """返回信用卡相关的用评论数据"""
