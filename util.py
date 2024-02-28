@@ -37,7 +37,6 @@ def save_json_to_file(json_data, file_name):
 
     # 构造完整的文件路径
     file_path = os.path.join(data_folder, file_name)
-    print(34,file_path)
     try:
         with open(file_path, 'r', encoding='utf-8') as existing_file:
             existing_data = json.load(existing_file)
