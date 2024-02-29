@@ -1,5 +1,5 @@
 import json
-from typing import Dict, List
+from typing import Dict, List,  Any
 
 import pandas as pd
 import streamlit as st
@@ -52,7 +52,7 @@ def map_emotion_summary_data(data):
 # Set up memory
 msgs = StreamlitChatMessageHistory(key="langchain_messages")
 if len(msgs.messages) == 0:
-    msgs.add_ai_message("How can I help you?")  # 这里可以加开场白
+    msgs.add_ai_message("请输入您想要了解的信用卡产品名")  # 这里可以加开场白
 
 # view_messages = st.expander("View the message contents in session state")
 
@@ -100,24 +100,28 @@ class DrawPlot_Model(BaseModel):
         description="传入对信用卡数据统计集合，类似这样的数据结构：{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}")
 
 
-def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
-    """接受固定的数据格式画柱状图图-horizontal bar chart"""
-
+# def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
+def draw_plot_func_v2(args: Dict[str, Any]) -> str:
+    """
+    draw a horizontal chart
+    """
+    category_names = args.get('category_names', [])
+    map_data = args.get('map_data', {})
     print("执行了draw_plot")
     print(category_names)
     print(map_data)
     message = st.chat_message("assistant")
     tab1, tab2 = message.tabs(["📈 Chart", "🗃 Data"])
     tab1.subheader("维度情感分析水平柱状图")
-    category_names = ['positive', 'negative', 'neutral']
-    arr_data = {'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}
-    survey(arr_data, category_names)
+    # category_names = ['positive', 'negative', 'neutral']
+    # arr_data = {'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}
+    survey(map_data, category_names)
     plt.show()
     tab1.pyplot()
 
     tab2.subheader("数据Table")
     # 创建 DataFrame
-    table_data = pd.DataFrame.from_dict(arr_data, orient='index', columns=category_names)
+    table_data = pd.DataFrame.from_dict(map_data, orient='index', columns=category_names)
     tab2.write(table_data)
     return "图和表都展示完成了"
 
@@ -132,16 +136,16 @@ agent_prompt = ChatPromptTemplate.from_messages([
 ])
 
 llm = ChatOpenAI(
-    openai_api_key=openai_api_key, model="gpt-3.5-turbo", temperature=0, streaming=True
+    openai_api_key=openai_api_key, model="gpt-4-turbo-preview", temperature=0, streaming=True
 )
 
 
 agent_tools = [
     StructuredTool.from_function(func=fetch_data, name="get_data",
                                  description="可以获取信用卡相关的用评论情感分析后的数据，要求输入具体的行用卡名称，比如招行信用卡，返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果"),
-    StructuredTool.from_function(func=draw_plot_func, name="draw-plot-tool",
-                                 args_schema=DrawPlot_Model,
-                                 description="调用可以画图，一定要传入2个参数，第一个参数是emotions list: 'positive', 'negative', 'neutral'，第二个参数是统计的数据集，结构类似{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}的结构，可以画水平柱状图/horizontal bar chart"),
+    StructuredTool.from_function(func=draw_plot_func_v2, name="draw_plot_func_v2",
+                                 # args_schema=DrawPlot_Model,
+                                 description="could draw a chart，given: { 'category_names': ['positive', 'negative', 'neutral'],'map_data': {'CardCosts': [5, 5, 5], 'RewardsProgram': [3, 5, 7], 'CustomerService': [5, 4, 6], 'AppUsability': [4, 8, 3], 'Benefits': [1, 7, 7]}} as parmas then it could draw horizontal bar chart"),
 ]
 
 agent = create_openai_tools_agent(llm, agent_tools, agent_prompt)
