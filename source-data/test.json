@@ -1,0 +1,287 @@
+[
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "下卡速度较快",
+        "额度较高"
+      ],
+      "Opportunities": [
+        "线下申请流程需要改进",
+        "提供更多下卡条件选择"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "快速审批流程",
+        "服务贴心"
+      ],
+      "Opportunities": [
+        "提高线下实体刷卡体验"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": -1
+      },
+      "ServiceGuarantee": {
+        "emotion": -1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 3,
+      "Strengths": [
+        "免年费政策"
+      ],
+      "Opportunities": [
+        "积分计划不明确，商户限制过多"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 9,
+      "Strengths": [
+        "高效的进件流程和审批速度",
+        "生日当天刷额度获得积分抵扣年费"
+      ],
+      "Opportunities": [
+        "年底十元风暴活动可能造成用户困扰"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": -1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 2,
+      "Strengths": [],
+      "Opportunities": [
+        "提高审核效率",
+        "降低年费"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": -1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 7,
+      "Strengths": [
+        "升级到无限信用卡享受更高权益"
+      ],
+      "Opportunities": [
+        "10000积分可能浪费",
+        "经典白功能在未来几年内不会被使用"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 3,
+      "Strengths": [
+        "享受经典白的住宿折扣福利"
+      ],
+      "Opportunities": [
+        "提高信用卡申请成功率"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": -1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 2,
+      "Strengths": [
+        "PointsProgram allows fee redemption"
+      ],
+      "Opportunities": [
+        "BenefitAllocation improvement needed"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 4,
+      "Strengths": [
+        "柜员服务态度积极配合"
+      ],
+      "Opportunities": [
+        "申请流程体验不好，审核时间较长"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 7,
+      "Strengths": [
+        "快速安检通道",
+        "贵宾厅服务质量"
+      ],
+      "Opportunities": [
+        "缺少航班提醒功能"
+      ]
+    }
+  }
+]

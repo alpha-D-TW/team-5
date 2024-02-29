@@ -32,15 +32,15 @@
 
    ```shell
    # 从配置文件中读取关键词搜索相关的帖子并爬去帖子信息与评论
-   python3 main.py --platform xhs --lt qrcode --type search
+   python3 main.txt --platform xhs --lt qrcode --type search
    
    # 从配置文件中读取指定的帖子ID列表获取指定帖子的信息与评论信息
-   python3 main.py --platform xhs --lt qrcode --type detail
+   python3 main.txt --platform xhs --lt qrcode --type detail
   
    # 打开对应APP扫二维码登录
      
    # 其他平台爬虫使用示例, 执行下面的命令查看
-   python3 main.py --help    
+   python3 main.txt --help    
    ```
 
 
