@@ -5,7 +5,7 @@ import yaml
 from openai import OpenAI
 
 #全局变量
-FILE_NAME = 'test1.json'
+FILE_NAME = 'test.json'
 PROMPT = """
 Role: As a professional data analyst, your expertise lies in identifying and classifying the emotions conveyed in user posts.
 
@@ -22,7 +22,7 @@ Output Format: Provide an array of objects in the form:
 
 Only include dimensions that have been analyzed. If the content does not pertain to the "招商银行白金卡," return the message: "The provided info is not related to 招商银行白金卡."
 """
-KEY="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"
+KEY="xxx"
 
 ##load file
 def read_json(json_file_path):
@@ -48,14 +48,14 @@ def loop(total_json_data, loop_size: int):
     if total_json_data is None:
         return
     lenth = len(total_json_data)
-    # print(lenth)
+    print(lenth)
     # print(total_json_data)
     # 按照输入 loop size 拆分 entry
     for i in range(0, lenth, loop_size):
         # print(total_json_data[i : i + loop_size])
         response = chat_func(total_json_data[i : i + loop_size])
         save_json_to_file(response, FILE_NAME)
-
+        
 
 
 """
