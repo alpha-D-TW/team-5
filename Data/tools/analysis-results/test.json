@@ -350,5 +350,321 @@
         "null"
       ]
     }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "体检",
+        "贵宾厅",
+        "酒店",
+        "权益",
+        "生日"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "10倍积分",
+        "生日"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "快速下卡",
+        "额度提升"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "1W积分免年费",
+        "户头积分4W多"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "6次贵宾厅可带人",
+        "1次洗牙",
+        "1次体检"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "不让失望"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "6次贵宾厅",
+        "1次洗牙",
+        "1次体检",
+        "12次高尔夫练习场"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "1W积分免年费",
+        "户头积分有4W多"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "3600/年",
+        "免年费"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "兑换机票",
+        "微信5倍积分"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "高尔夫",
+        "酒店",
+        "洗牙",
+        "体检",
+        "机场延误险"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "Service Guarantee": {
+      "emotion": 1,
+      "reason": [
+        "初次授信额度下的100k"
+      ]
+    }
+  },
+  {
+    "Points Program": {
+      "emotion": 1,
+      "reason": [
+        "生日十倍积分",
+        "能多刷那多出来的分还可以换里程"
+      ]
+    }
+  },
+  {
+    "Benefit Allocation": {
+      "emotion": 1,
+      "reason": [
+        "体检1次",
+        "洗牙1次",
+        "酒店6次贵宾价",
+        "高尔夫12次",
+        "五星级酒店自助餐买一送一",
+        "机场贵宾厅6次"
+      ]
+    }
+  },
+  {
+    "Card Costs": {
+      "emotion": 0,
+      "reason": [
+        "null"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 6,
+      "Strengths": [
+        "能够享受贵宾厅、体检、订酒店等多项权益，以及生日时可获得10倍积分的优惠。"
+      ],
+      "Opportunities": [
+        "建议了解更多权益，如何更好地利用积分，以发挥信用卡的最大价值。"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 9,
+      "Strengths": [
+        "丰富的权益，包括贵宾厅使用次数多，可带人；洗牙、体检等实用权益；高尔夫练习场次数多；适合户外爱好者"
+      ],
+      "Opportunities": [
+        "年费较高，但可通过积分免费；线下申办，可能有一定的繁琐性"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "升级额度快，信用卡权益好"
+      ],
+      "Opportunities": []
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "互补的权益设计",
+        "兑换机票开通微信5倍积分"
+      ],
+      "Opportunities": []
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "丰富的权益包括体检、洗牙、酒店贵宾价、高尔夫、机场贵宾厅等，对于喜欢享受生活的用户非常有吸引力",
+        "生日刷卡有十倍积分抵扣年费，积分计算规则清晰可依赖"
+      ],
+      "Opportunities": [
+        "部分权益次数有限，使用较为繁琐需要关注细节",
+        "部分消费项目限制较严格，需要用户提前规划"
+      ]
+    }
   }
 ]

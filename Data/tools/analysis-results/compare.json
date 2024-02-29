@@ -1,0 +1,283 @@
+[
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": -1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 4,
+      "Strengths": [
+        "卡额度大，10w",
+        "不能该生日日期"
+      ],
+      "Opportunities": [
+        "允许用户改生日日期"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "申请简便，审批流程极短",
+        "新卡未到之前，掌上生活已经可以激活线上功能了"
+      ],
+      "Opportunities": [
+      ]
+    }
+
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": -1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "申请简便，审批流程极短",
+        "新卡未到之前，掌上生活已经可以激活线上功能了"
+      ],
+      "Opportunities": [
+        "支持更多方式消费进行积分"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 9,
+      "Strengths": [
+        "进件很方便效率很高",
+        "年底一般会有个十元风暴的活动"
+      ],
+      "Opportunities": [
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": -1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 3,
+      "Strengths": [
+      ],
+      "Opportunities": [
+        "给出审核失败原因"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 5,
+      "Strengths": [
+      ],
+      "Opportunities": [
+        "提高权益"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 1,
+      "Strengths": [
+      ],
+      "Opportunities": [
+        "办卡门槛高"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -0
+      },
+      "BenefitAllocation": {
+        "emotion": -1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 1,
+      "Strengths": [
+        "好的度假酒店要么没X程"
+      ],
+      "Opportunities": [
+        "权益对应酒店很少",
+        "优惠难以用出"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 0
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": -1
+      },
+      "AppExperience": {
+        "emotion": -1
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 1,
+      "Strengths": [
+      ],
+      "Opportunities": [
+        "营业员态度好一些，不要有鄙夷神情",
+        "线下下卡速度快一些"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 5,
+      "Strengths": [
+      ],
+      "Opportunities": [
+        "机场休息厅提供航班提醒"
+      ]
+    }
+  }
+
+]

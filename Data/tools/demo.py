@@ -5,24 +5,51 @@ import yaml
 from openai import OpenAI
 
 #全局变量
-FILE_NAME = 'test.json'
+FILE_NAME = 'test229-1.json'
 PROMPT = """
-Role: As a professional data analyst, your expertise lies in identifying and classifying the emotions conveyed in user posts.
+Role: You as a professional data analyst, your expertise lies in interpreting the emotional nuances within user posts and categorizing their sentiments.
 
-Task: Your objective is to distill key information from the posts and conduct an emotional analysis based on specific criteria.
+Background: Users share experiences with our bank's credit cards on social media and forums, discussing customer service, rewards, and app usability. This feedback is crucial for improving user satisfaction and product design. As a product manager, I aim to understand customer opinions to enhance our credit card services.
 
-Background: The focus of this analysis is on user sentiments surrounding the use of the "招商银行白金卡" (China Merchants Bank Platinum Card), also known colloquially as "经典白" and "招商白金经典信用卡."
+Task: Your objective is to distill key insights from user feedback on the "招商银行白金卡" (China Merchants Bank Platinum Card) and quantify the emotional valence of these insights. 
+Requirements:
 
-Requirements: Process an input consisting of an array of objects structured as { "title": string, "desc": string }[]. Your analysis should categorize the emotional sentiment across four distinct dimensions related to the credit card: Service Guarantee, Points Program, Benefit Allocation, and Card Costs.
+Emotion Analysis: Assign a SatisfactionScore between 0 and 10 based on the emotional tone of user comments, capturing the essence of their;
 
-For each dimension, assess the emotion as -1 (negative), 0 (neutral/no mention), or 1 (positive), and extract the key phrases that justify this emotional rating. If a dimension is not explicitly mentioned, assign a 0 (neutral) and note "null" for the reasoning.
+Insight Extraction: Delve into the reasons behind the assigned scores, identifying what aspects lead to user satisfaction or dissatisfaction. Highlight these findings in Chinese in the Strengths and Opportunities fields.
 
-Output Format: Provide an array of objects in the form:
-[ {"dimension_name": {"emotion": Enum(-1,0,1), "reason": ["keyword1", "keyword2"]}}, {"another_dimension_name": {"emotion": Enum(-1,0,1), "reason": ["keyword1"]}} ]
+Dimensional Analysis: Evaluate user sentiments across five specific dimensions concerning the credit card's products and services. Assign a score on emotion (only on "-1", "0" , "1"; "-1" means bad experience on the dimensions; "0" means there is no explicit mention of the dimension, return ; "1" means good experience on the dimensions).
 
-Only include dimensions that have been analyzed. If the content does not pertain to the "招商银行白金卡," return the message: "The provided info is not related to 招商银行白金卡."
+The five dimensions include:
+
+CardCosts(持卡成本：账单周期，年费政策),
+BenefitAllocation(生活权益，差旅权益),
+PointsProgram(积分计划，积分权益),
+ServiceGuarantee(人工服务，自助服务，安全保障),
+AppExperience(关注用户在数字渠道的体验)
+Output Format: only output json format
+
+Relevance Filter: Exclude any feedback not directly related to the "招商银行白金卡”,”经典白”,”招商白金经典信用卡” stating: “Not related”Additional Instructions: Supplement your analysis with research to thoroughly understand the context and user experiences related to the "招商银行白金卡." Input Structure Example:[{"title": "Great Rewards Program","desc": "I love the rewards program, but the app is a bit clunky."},{"title": "High Fees","desc": "The card's benefits are good, but the high annual fee is disappointing."}]
+
+Output Structure Example: [
+{
+"CreditCardExperience": {
+"CardCosts": {
+"emotion": Enum(-1, 0, 1),
+},
+// Other dimensions...
+},
+"SatisfactionAnalysis": {
+"SatisfactionScore": Integer(0-10),
+"Strengths": ["reason1", "reason2"],
+"Opportunities": ["reason1", "reason2"],
+}
+},
+// Additional objects for each input...
+]
+ Note: Replace reason1, reason2, etc., with the actual reasons you analyzed.
 """
-KEY="xxx"
+KEY="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"
 
 ##load file
 def read_json(json_file_path):
@@ -35,6 +62,17 @@ def read_json(json_file_path):
         json_data = json.load(f)
     # print(yaml_data)
     return json_data
+
+def tell_me_length(json_file_path):
+    """
+    Args:
+      json_file_path: JSON 文件路径
+    """
+    # 读取 JSON 文件
+    with open(json_file_path, "r", encoding="utf-8") as f:
+        json_data = json.load(f)
+    print('length:',len(json_data))
+    # return json_data
 
 
 """
@@ -55,7 +93,7 @@ def loop(total_json_data, loop_size: int):
         # print(total_json_data[i : i + loop_size])
         response = chat_func(total_json_data[i : i + loop_size])
         save_json_to_file(response, FILE_NAME)
-        
+
 
 
 """
@@ -142,14 +180,14 @@ def save_json_to_file(json_data, file_name):
             existing_data = []
 
     # 将新数据添加到现有数据中
-    combined_data = existing_data + json_data
-
+    existing_data += json_data
     # 将整合后的数据写回文件
     with open(file_path, 'w', encoding='utf-8') as json_file:
-      json.dump(combined_data, json_file, ensure_ascii=False, indent=2)
+      json.dump(existing_data, json_file, ensure_ascii=False, indent=2)
 
 
 
 if __name__ == '__main__':
+    tell_me_length("../../source-data/nonghang-jingcuibai.json")
     yaml_data = read_json("../test.json")
     loop(yaml_data, 1)
