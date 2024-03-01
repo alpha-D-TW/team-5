@@ -97,6 +97,7 @@ def handle_openai_draw_chart(chart_desc_text, data):
                         result = "".join(response).strip()
                         botmsg.write(result)
         execute_openai_code(result)
+        return "用户想要的图已经绘制完成"
 
 
 def extract_code_from_markdown(md_text):

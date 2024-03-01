@@ -72,14 +72,14 @@ def load_json(card_name: str):
     return "返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果。用户信用卡相关的评论，情感分析后的数据是：" + str(json_data)
 
 
-class DrawPlot_Model(BaseModel):
+class DrawBarChart_Model(BaseModel):
     category_names: List[str] = Field(description="list of str The category labels. category is the emotions list: 'positive', 'negative', 'neutral'")
     map_data: Dict[str, List[int]] = Field(
         description="传入对信用卡数据统计集合，输出Dict[str, List[int]]的python 结构体：{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}")
 
 
 # def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
-def draw_plot_func_v2(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
+def draw_bar_chart(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
     """
     draw a horizontal chart
     """
@@ -130,6 +130,10 @@ agent_tools = [
     StructuredTool.from_function(func=handle_openai_draw_chart, name="draw_general_plot",
                                  args_schema=DrawGeneralPlot_Model,
                                  description="根据描述，画图，要传入用户评论情感分析数据统计后的数据集和描述，要画什么图请提前关键字并翻译成英文传入"),
+    StructuredTool.from_function(func=draw_bar_chart, name="draw_bar_chart",
+                                 # args_schema=DrawPlot_Model,
+                                 description="当用户想要柱状图时，使用这个工具画图，could draw a chart，given: { 'category_names': ['positive', 'negative', 'neutral'],'map_data': {'CardCosts': [5, 5, 5], 'RewardsProgram': [3, 5, 7], 'CustomerService': [5, 4, 6], 'AppUsability': [4, 8, 3], 'Benefits': [1, 7, 7]}} as parmas then it could draw horizontal bar chart"),
+
 ]
 
 agent = create_openai_tools_agent(llm, agent_tools, agent_prompt)
