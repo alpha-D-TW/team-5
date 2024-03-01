@@ -5,8 +5,7 @@ import re
 from openai import OpenAI
 import matplotlib.pyplot as plt
 
-# Define the model to use
-MODEL_NAME = "gpt-3.5-turbo"
+from config import LLM_MODEL
 
 
 def handle_openai_draw_chart(chart_desc_text, data):
@@ -89,7 +88,7 @@ def handle_openai_draw_chart(chart_desc_text, data):
                 )
 
                 for chunk in client.chat.completions.create(
-                        model=MODEL_NAME, messages=messages, stream=True
+                        model=LLM_MODEL, messages=messages, stream=True
                 ):
                     text = chunk.choices[0].delta.content
                     if text:

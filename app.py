@@ -19,11 +19,14 @@ import matplotlib.pyplot as plt
 from langchain.pydantic_v1 import BaseModel, Field
 
 from draw_chart import handle_openai_draw_chart, survey
-from streamlit.runtime.scriptrunner import add_script_run_ctx
+
+from config import LLM_MODEL
 
 systerm_prompt = load_prompt_text()
 
+print('prompt:-----------')
 print(systerm_prompt)
+print('--------')
 
 st.set_page_config(page_title="Team 5", page_icon="🦜")
 st.subheader("🔍🌐 洞察五方 / Insight Sphere")
@@ -62,31 +65,9 @@ def fetch_data(card_key: str) -> str:
     else:
         print("fetch_data没有找到对应数据")
 
-def show_text(hint,stt):
-    st.toast(hint)
-
-def setTimeout(callback, delay):
-    def delayed_callback():
-        time.sleep(delay)
-        callback()
-    thread = Thread(target=delayed_callback)
-    add_script_run_ctx(thread)
-    thread.start()
-
-
-def show_process(stt):
-    setTimeout(lambda: show_text('模型开始处理...', stt), 2)
-    setTimeout(lambda: show_text('开始加载数据...',stt), 4)
-    setTimeout(lambda: show_text('数据加载完成，模型开始分析...', stt), 7)
-    setTimeout(lambda: show_text('分析完成，即将输出',stt), 11)
-    # st.write("LLM Starting Processing...")
-    # time.sleep(2)
-    # st.write("Found URL.")
-    # time.sleep(1)
-    # st.write("Downloading data...")
-    # time.sleep(1)
 
 def load_json(card_name: str):
+    print('card_name: ' + card_name)
     """
     Args:
       json_file_path: JSON 文件路径
@@ -96,8 +77,7 @@ def load_json(card_name: str):
             "./Data/tools/analysis-results/" + card_name + ".json", "r", encoding="utf-8"
     ) as f:
         json_data = json.load(f)
-    # print(yaml_data)
-
+        print(json_data)
     return "返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果。用户信用卡相关的评论，情感分析后的数据是：" + str(json_data)
 
 
@@ -107,28 +87,25 @@ class DrawBarChart_Model(BaseModel):
         description="传入对信用卡数据统计集合，输出Dict[str, List[int]]的python 结构体：{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}")
 
 
-# def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
-def draw_bar_chart() -> str:
+def draw_bar_chart(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
     """
-    draw a horizontal chart
+    draw a horizontal bar chart
     """
     # category_names = category_names
     # map_data = map_data
     print("执行了draw_plot")
-    # print(category_names)
-    # print(map_data)
+    print(category_names)
+    print(map_data)
     message = st.chat_message("assistant")
     tab1, tab2 = message.tabs(["📈 Chart", "🗃 Data"])
     tab1.subheader("维度情感分析水平柱状图")
-    category_names = ['positive', 'negative', 'neutral']
-    arr_data = {'Card Costs': [5, 3, 2], 'Benefit Allocation': [5, 3, 1], 'Points Program': [3, 4, 3], 'Service Guarantee': [4, 5, 1], 'App Experience': [1, 8, 1]}
-    survey(arr_data, category_names)
+    survey(map_data, category_names)
     plt.show()
     tab1.pyplot()
 
     tab2.subheader("数据Table")
     # 创建 DataFrame
-    table_data = pd.DataFrame.from_dict(arr_data, orient='index', columns=category_names)
+    table_data = pd.DataFrame.from_dict(map_data, orient='index', columns=category_names)
     tab2.write(table_data)
     return "柱状图图和表都展示完成了"
 
@@ -142,15 +119,16 @@ agent_prompt = ChatPromptTemplate.from_messages([
     # https://python.langchain.com/docs/modules/agents/how_to/custom_agent#adding-memory
 ])
 
+
 llm = ChatOpenAI(
-    openai_api_key=openai_api_key, model="gpt-4-turbo-preview", temperature=0, streaming=True
+    openai_api_key=openai_api_key, model=LLM_MODEL, temperature=0.1, streaming=True
 )
 
 
 class DrawGeneralPlot_Model(BaseModel):
     chart_desc_text: str = Field(description="用户想画什么图，传入英文")
     data: str = Field(
-        description="传入对信用卡数据统计集合即可，并字段附带描述和含义}")
+        description="传入对信用卡数据统计集合即可，并传入字段附带描述和含义}")
 
 
 agent_tools = [
@@ -182,9 +160,7 @@ for msg in msgs.messages:
 # If user inputs a new prompt, generate and draw a new response
 if prompt := st.chat_input("你可以输出一个信用卡：比如招行信用卡"):
     st.chat_message("human").write(prompt)
-    stt = st.spinner("Process")
-    with stt:
-        show_process(stt)
+    with st.spinner("Process"):
         print(prompt)
         config = {"configurable": {"session_id": "any"}}
         response = chain_with_history.invoke({"question": prompt}, config)
