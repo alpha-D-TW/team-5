@@ -79,29 +79,29 @@ class DrawBarChart_Model(BaseModel):
 
 
 # def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
-def draw_bar_chart(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
+def draw_bar_chart() -> str:
     """
     draw a horizontal chart
     """
-    category_names = category_names
-    map_data = map_data
+    # category_names = category_names
+    # map_data = map_data
     print("执行了draw_plot")
-    print(category_names)
-    print(map_data)
+    # print(category_names)
+    # print(map_data)
     message = st.chat_message("assistant")
     tab1, tab2 = message.tabs(["📈 Chart", "🗃 Data"])
     tab1.subheader("维度情感分析水平柱状图")
-    # category_names = ['positive', 'negative', 'neutral']
-    # arr_data = {'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}
-    survey(map_data, category_names)
+    category_names = ['positive', 'negative', 'neutral']
+    arr_data = {'Card Costs': [5, 3, 2], 'Benefit Allocation': [5, 3, 1], 'Points Program': [3, 4, 3], 'Service Guarantee': [4, 5, 1], 'App Experience': [1, 8, 1]}
+    survey(arr_data, category_names)
     plt.show()
     tab1.pyplot()
 
     tab2.subheader("数据Table")
     # 创建 DataFrame
-    table_data = pd.DataFrame.from_dict(map_data, orient='index', columns=category_names)
+    table_data = pd.DataFrame.from_dict(arr_data, orient='index', columns=category_names)
     tab2.write(table_data)
-    return "图和表都展示完成了"
+    return "柱状图图和表都展示完成了"
 
 
 # Set up the LangChain, passing in Message History
@@ -129,10 +129,10 @@ agent_tools = [
                                  description=f"可以获取用户信用卡相关的评论，情感分析后的数据。请根据输入信用卡关键字自动map传入，map数据是{dict_to_string(CARD_MAP)}"),
     StructuredTool.from_function(func=handle_openai_draw_chart, name="draw_general_plot",
                                  args_schema=DrawGeneralPlot_Model,
-                                 description="根据描述，画图，要传入用户评论情感分析数据统计后的数据集和描述，要画什么图请提前关键字并翻译成英文传入"),
+                                 description="根据描述，画图，画柱状图不要调这个，要传入用户评论情感分析数据统计后的数据集和描述，要画什么图请提前关键字并翻译成英文传入"),
     StructuredTool.from_function(func=draw_bar_chart, name="draw_bar_chart",
                                  # args_schema=DrawPlot_Model,
-                                 description="当用户想要柱状图时，使用这个工具画图，could draw a chart，given: { 'category_names': ['positive', 'negative', 'neutral'],'map_data': {'CardCosts': [5, 5, 5], 'RewardsProgram': [3, 5, 7], 'CustomerService': [5, 4, 6], 'AppUsability': [4, 8, 3], 'Benefits': [1, 7, 7]}} as parmas then it could draw horizontal bar chart"),
+                                 description="根据统计数据画柱状图"),
 
 ]
 

@@ -79,7 +79,7 @@ def handle_openai_draw_chart(chart_desc_text, data):
         ]
 
         # Call OpenAI and display the response
-        with st.status("📟 *Prompting is the new programming*..."):
+        with st.status("📟 *Prompting is the new programming，generating the plot code*..."):
             with st.chat_message("assistant", avatar="📊"):
                 botmsg = st.empty()
                 response = []
