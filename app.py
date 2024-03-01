@@ -22,32 +22,9 @@ systerm_prompt = load_prompt_text()
 print(systerm_prompt)
 
 st.set_page_config(page_title="Team 5", page_icon="🦜")
-st.title('🦜🔗 Credit Cards Reviews')
+st.title('Credit Cards Reviews')
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-def map_emotion_summary_data(data):
-    # Initialize the summary object with counters for each category and emotion
-    summary = {
-        "CardCosts": [0, 0, 0],
-        "RewardsProgram": [0, 0, 0],
-        "CustomerService": [0, 0, 0],
-        "AppUsability": [0, 0, 0],
-        "Benefits": [0, 0, 0]
-    }
-
-    # Iterate through each item in the data list
-    for item in data:
-        # Extract the CreditCardExperience dictionary
-        experience = item["CreditCardExperience"]
-        # Iterate through each key in the experience dictionary
-        for key, value in experience.items():
-            # Map the emotion to the corresponding index in the summary
-            # -1 maps to index 0 (negative), 0 maps to index 1 (neutral), 1 maps to index 2 (positive)
-            emotion_index = value["emotion"] + 1
-            # Increment the corresponding counter in the summary
-            summary[key][emotion_index] += 1
-
-    return "信用卡相关的用评论情感分析后的数据转化后的结果：" + str(summary)
 
 # Set up memory
 msgs = StreamlitChatMessageHistory(key="langchain_messages")
@@ -70,14 +47,14 @@ def dict_to_string(dictionary):
     return json.dumps(dictionary, indent=None)
 
 
-CARD_MAP = {"招商银行经典白金卡": "file_1", "招商银行普通卡": "file_2"}
+CARD_MAP = {"招商银行经典白金卡": "file_1", "万事达": "file_2"}
 
 
 def fetch_data(card_key: str) -> str:
     if card_key in CARD_MAP:
         return load_json(CARD_MAP[card_key])
     else:
-        print("error")
+        print("fetch_data没有找到对应数据")
 
 
 def load_json(card_name: str):
@@ -87,26 +64,27 @@ def load_json(card_name: str):
     """
     # 读取 JSON 文件
     with open(
-        "./Data/tools/analysis-results/" + card_name + ".json", "r", encoding="utf-8"
+            "./Data/tools/analysis-results/" + card_name + ".json", "r", encoding="utf-8"
     ) as f:
         json_data = json.load(f)
     # print(yaml_data)
-    return "用户评论是：" + str(json_data)
+    st.spinner("获取到了数据，正在分析...")
+    return "返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果。用户信用卡相关的评论，情感分析后的数据是：" + str(json_data)
 
 
 class DrawPlot_Model(BaseModel):
     category_names: List[str] = Field(description="list of str The category labels. category is the emotions list: 'positive', 'negative', 'neutral'")
     map_data: Dict[str, List[int]] = Field(
-        description="传入对信用卡数据统计集合，类似这样的数据结构：{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}")
+        description="传入对信用卡数据统计集合，输出Dict[str, List[int]]的python 结构体：{'Card Costs': [5, 5, 5], 'Rewards Program': [3, 5, 7], 'Customer Service': [5, 4, 6], 'App Usability': [4, 8, 3], 'Benefits': [1, 7, 7]}")
 
 
 # def draw_plot_func(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
-def draw_plot_func_v2(args: Dict[str, Any]) -> str:
+def draw_plot_func_v2(category_names: List[str], map_data: Dict[str, List[int]]) -> str:
     """
     draw a horizontal chart
     """
-    category_names = args.get('category_names', [])
-    map_data = args.get('map_data', {})
+    category_names = category_names
+    map_data = map_data
     print("执行了draw_plot")
     print(category_names)
     print(map_data)
@@ -140,12 +118,18 @@ llm = ChatOpenAI(
 )
 
 
+class DrawGeneralPlot_Model(BaseModel):
+    chart_desc_text: str = Field(description="用户想画什么图，传入英文")
+    data: str = Field(
+        description="传入对信用卡数据统计集合即可，并字段附带描述和含义}")
+
+
 agent_tools = [
-    StructuredTool.from_function(func=fetch_data, name="get_data",
-                                 description="可以获取信用卡相关的用评论情感分析后的数据，要求输入具体的行用卡名称，比如招行信用卡，返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果"),
-    StructuredTool.from_function(func=draw_plot_func_v2, name="draw_plot_func_v2",
-                                 # args_schema=DrawPlot_Model,
-                                 description="could draw a chart，given: { 'category_names': ['positive', 'negative', 'neutral'],'map_data': {'CardCosts': [5, 5, 5], 'RewardsProgram': [3, 5, 7], 'CustomerService': [5, 4, 6], 'AppUsability': [4, 8, 3], 'Benefits': [1, 7, 7]}} as parmas then it could draw horizontal bar chart"),
+    StructuredTool.from_function(func=fetch_data, name="fetch_data",
+                                 description=f"可以获取用户信用卡相关的评论，情感分析后的数据。请根据输入信用卡关键字自动map传入，map数据是{dict_to_string(CARD_MAP)}"),
+    StructuredTool.from_function(func=handle_openai_draw_chart, name="draw_general_plot",
+                                 args_schema=DrawGeneralPlot_Model,
+                                 description="根据描述，画图，要传入用户评论情感分析数据统计后的数据集和描述，要画什么图请提前关键字并翻译成英文传入"),
 ]
 
 agent = create_openai_tools_agent(llm, agent_tools, agent_prompt)

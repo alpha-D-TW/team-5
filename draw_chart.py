@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 MODEL_NAME = "gpt-3.5-turbo"
 
 
-def handle_openai_draw_chart(df, column_names):
+def handle_openai_draw_chart(chart_desc_text, data):
     """
     Handle the OpenAI query and display the response.
 
@@ -34,16 +34,18 @@ def handle_openai_draw_chart(df, column_names):
     #         """,
     # )
 
-    query_chat_text = "bar plot"
 
     # Ensure the query is not empty
     # if query and query.strip() != "":
-    if query_chat_text != "":
+    if chart_desc_text != "":
         # Define the prompt content
         prompt_content = f"""
-        The dataset is ALREADY loaded into a DataFrame named 'df'. DO NOT load the data again.
         
-        The DataFrame has the following columns: {column_names}
+        The user want to draw {chart_desc_text} 
+        
+        The dataset is this: {data}
+        
+        You need analyze the data, covert it to a good DataFrame for the charts that user want, 
         
         Before plotting, ensure the data is ready:
         1. Check if columns that are supposed to be numeric are recognized as such. If not, attempt to convert them.
@@ -52,7 +54,7 @@ def handle_openai_draw_chart(df, column_names):
         Use package Pandas and Matplotlib ONLY.
         Provide SINGLE CODE BLOCK with a solution using Pandas and Matplotlib plots in a single figure to address the following query:
         
-         {query_chat_text} 
+         {chart_desc_text} 
 
         - USE SINGLE CODE BLOCK with a solution. 
         - Do NOT EXPLAIN the code 
@@ -94,7 +96,7 @@ def handle_openai_draw_chart(df, column_names):
                         response.append(text)
                         result = "".join(response).strip()
                         botmsg.write(result)
-        execute_openai_code(result, df, query_chat_text)
+        execute_openai_code(result)
 
 
 def extract_code_from_markdown(md_text):
@@ -116,7 +118,7 @@ def extract_code_from_markdown(md_text):
     return code
 
 
-def execute_openai_code(response_text: str, df: pd.DataFrame, query):
+def execute_openai_code(response_text: str):
     """
     Execute the code provided by OpenAI in the app.
 
