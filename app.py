@@ -1,4 +1,7 @@
+import asyncio
 import json
+import time
+from threading import Thread
 from typing import Dict, List,  Any
 
 import pandas as pd
@@ -16,13 +19,16 @@ import matplotlib.pyplot as plt
 from langchain.pydantic_v1 import BaseModel, Field
 
 from draw_chart import handle_openai_draw_chart, survey
+from streamlit.runtime.scriptrunner import add_script_run_ctx
 
 systerm_prompt = load_prompt_text()
 
 print(systerm_prompt)
 
 st.set_page_config(page_title="Team 5", page_icon="🦜")
-st.title('Credit Cards Reviews')
+st.subheader("🔍🌐 洞察五方 / Insight Sphere")
+st.text("一览众情，智慧五方")
+st.divider()
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 
@@ -56,6 +62,29 @@ def fetch_data(card_key: str) -> str:
     else:
         print("fetch_data没有找到对应数据")
 
+def show_text(hint,stt):
+    st.toast(hint)
+
+def setTimeout(callback, delay):
+    def delayed_callback():
+        time.sleep(delay)
+        callback()
+    thread = Thread(target=delayed_callback)
+    add_script_run_ctx(thread)
+    thread.start()
+
+
+def show_process(stt):
+    setTimeout(lambda: show_text('模型开始处理...', stt), 2)
+    setTimeout(lambda: show_text('开始加载数据...',stt), 4)
+    setTimeout(lambda: show_text('数据加载完成，模型开始分析...', stt), 7)
+    setTimeout(lambda: show_text('分析完成，即将输出',stt), 11)
+    # st.write("LLM Starting Processing...")
+    # time.sleep(2)
+    # st.write("Found URL.")
+    # time.sleep(1)
+    # st.write("Downloading data...")
+    # time.sleep(1)
 
 def load_json(card_name: str):
     """
@@ -68,7 +97,7 @@ def load_json(card_name: str):
     ) as f:
         json_data = json.load(f)
     # print(yaml_data)
-    st.spinner("获取到了数据，正在分析...")
+
     return "返回的是json data，是一个数组，一个对象就是对一个用户评论的分析结果。用户信用卡相关的评论，情感分析后的数据是：" + str(json_data)
 
 
@@ -153,14 +182,16 @@ for msg in msgs.messages:
 # If user inputs a new prompt, generate and draw a new response
 if prompt := st.chat_input("你可以输出一个信用卡：比如招行信用卡"):
     st.chat_message("human").write(prompt)
-    with st.spinner("Processing..."):
+    stt = st.spinner("Process")
+    with stt:
+        show_process(stt)
         print(prompt)
         config = {"configurable": {"session_id": "any"}}
         response = chain_with_history.invoke({"question": prompt}, config)
         print("response is: ")
         print(response)
 
-        st.chat_message("ai").write(response["output"])
+    st.chat_message("ai").write(response["output"])
 
 # Draw the messages at the end, so newly generated ones show up immediately
 # with view_messages:

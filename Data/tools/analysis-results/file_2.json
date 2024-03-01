@@ -2,75 +2,16 @@
   {
     "CreditCardExperience": {
       "CardCosts": {
-        "emotion": 1
-      },
-      "BenefitAllocation": {
-        "emotion": 0
-      },
-      "PointsProgram": {
-        "emotion": 0
-      },
-      "ServiceGuarantee": {
-        "emotion": 0
-      },
-      "AppExperience": {
-        "emotion": 0
-      }
-    },
-    "SatisfactionAnalysis": {
-      "SatisfactionScore": 8,
-      "Strengths": [
-        "下卡速度较快",
-        "额度较高"
-      ],
-      "Opportunities": [
-        "线下申请流程需要改进",
-        "提供更多下卡条件选择"
-      ]
-    }
-  },
-  {
-    "CreditCardExperience": {
-      "CardCosts": {
-        "emotion": 1
-      },
-      "BenefitAllocation": {
-        "emotion": 1
-      },
-      "PointsProgram": {
-        "emotion": 1
-      },
-      "ServiceGuarantee": {
-        "emotion": 1
-      },
-      "AppExperience": {
-        "emotion": 1
-      }
-    },
-    "SatisfactionAnalysis": {
-      "SatisfactionScore": 8,
-      "Strengths": [
-        "快速审批流程",
-        "服务贴心"
-      ],
-      "Opportunities": [
-        "提高线下实体刷卡体验"
-      ]
-    }
-  },
-  {
-    "CreditCardExperience": {
-      "CardCosts": {
-        "emotion": 0
-      },
-      "BenefitAllocation": {
-        "emotion": 1
-      },
-      "PointsProgram": {
         "emotion": -1
       },
-      "ServiceGuarantee": {
+      "BenefitAllocation": {
         "emotion": -1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
       },
       "AppExperience": {
         "emotion": 0
@@ -79,10 +20,124 @@
     "SatisfactionAnalysis": {
       "SatisfactionScore": 3,
       "Strengths": [
-        "免年费政策"
+        "积分换年费的优惠"
       ],
       "Opportunities": [
-        "积分计划不明确，商户限制过多"
+        "酒店权益需改进"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": -1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 5,
+      "Strengths": [
+        "申请流程快捷",
+        "获得多张卡片"
+      ],
+      "Opportunities": [
+        "需要改善线下提交材料的流程",
+        "提升人工服务的准确性"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 1
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 8,
+      "Strengths": [
+        "新增多项权益，包括文娱会员、观影、运动会员等，降低年消费门槛，免年费条件优化"
+      ],
+      "Opportunities": [
+        "缺少多倍积分活动，积分获取途径有限"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 3,
+      "Strengths": [
+        "有生活权益和差旅权益"
+      ],
+      "Opportunities": [
+        "账单周期和积分计划相对较弱"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
+        "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 7,
+      "Strengths": [
+        "享受到更多的车主权益"
+      ],
+      "Opportunities": [
+        "通过客户服务更好地说明车主权益的优势"
       ]
     }
   },
@@ -107,38 +162,11 @@
     "SatisfactionAnalysis": {
       "SatisfactionScore": 9,
       "Strengths": [
-        "高效的进件流程和审批速度",
-        "生日当天刷额度获得积分抵扣年费"
+        "自由人生白金卡在卡片等级和起批额度方面有明显优势，使申请较简单。",
+        "丰富的卡片权益包括积分兑换文娱会员、演出票、体检等，增加持卡人福利感。"
       ],
       "Opportunities": [
-        "年底十元风暴活动可能造成用户困扰"
-      ]
-    }
-  },
-  {
-    "CreditCardExperience": {
-      "CardCosts": {
-        "emotion": -1
-      },
-      "BenefitAllocation": {
-        "emotion": 0
-      },
-      "PointsProgram": {
-        "emotion": 0
-      },
-      "ServiceGuarantee": {
-        "emotion": -1
-      },
-      "AppExperience": {
-        "emotion": 0
-      }
-    },
-    "SatisfactionAnalysis": {
-      "SatisfactionScore": 2,
-      "Strengths": [],
-      "Opportunities": [
-        "提高审核效率",
-        "降低年费"
+        "尽管自由人生卡享有很多权益，但在App体验方面仍有改进空间，需要提升用户在数字渠道上的体验。"
       ]
     }
   },
@@ -151,24 +179,22 @@
         "emotion": 1
       },
       "PointsProgram": {
-        "emotion": -1
+        "emotion": 1
       },
       "ServiceGuarantee": {
-        "emotion": 0
+        "emotion": 1
       },
       "AppExperience": {
-        "emotion": 0
+        "emotion": 1
       }
     },
     "SatisfactionAnalysis": {
-      "SatisfactionScore": 7,
+      "SatisfactionScore": 9,
       "Strengths": [
-        "升级到无限信用卡享受更高权益"
+        "免年费和高额福利权益，如航班延误赔付和行李延误津贴",
+        "多重娱乐、健康和出行特权，满足各种需求"
       ],
-      "Opportunities": [
-        "10000积分可能浪费",
-        "经典白功能在未来几年内不会被使用"
-      ]
+      "Opportunities": []
     }
   },
   {
@@ -177,7 +203,35 @@
         "emotion": 1
       },
       "BenefitAllocation": {
+        "emotion": -1
+      },
+      "PointsProgram": {
         "emotion": 1
+      },
+      "ServiceGuarantee": {
+        "emotion": 0
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 5,
+      "Strengths": [
+        "Easy completion of annual fee"
+      ],
+      "Opportunities": [
+        "Limited benefits, higher card level for better perks"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": -1
+      },
+      "BenefitAllocation": {
+        "emotion": 0
       },
       "PointsProgram": {
         "emotion": 0
@@ -192,73 +246,78 @@
     "SatisfactionAnalysis": {
       "SatisfactionScore": 3,
       "Strengths": [
-        "享受经典白的住宿折扣福利"
+        "高额度",
+        "灵活的卡种选择"
       ],
       "Opportunities": [
-        "提高信用卡申请成功率"
+        "降低年费",
+        "提供更多吸引人的权益"
       ]
     }
   },
   {
     "CreditCardExperience": {
       "CardCosts": {
-        "emotion": -1
+        "emotion": 1
       },
       "BenefitAllocation": {
-        "emotion": -1
+        "emotion": 1
       },
       "PointsProgram": {
         "emotion": 1
       },
       "ServiceGuarantee": {
-        "emotion": 0
-      },
-      "AppExperience": {
-        "emotion": 0
-      }
-    },
-    "SatisfactionAnalysis": {
-      "SatisfactionScore": 2,
-      "Strengths": [
-        "PointsProgram allows fee redemption"
-      ],
-      "Opportunities": [
-        "BenefitAllocation improvement needed"
-      ]
-    }
-  },
-  {
-    "CreditCardExperience": {
-      "CardCosts": {
-        "emotion": -1
-      },
-      "BenefitAllocation": {
-        "emotion": 0
-      },
-      "PointsProgram": {
-        "emotion": 0
-      },
-      "ServiceGuarantee": {
-        "emotion": 0
+        "emotion": 1
       },
       "AppExperience": {
         "emotion": 1
       }
     },
     "SatisfactionAnalysis": {
-      "SatisfactionScore": 4,
+      "SatisfactionScore": 9,
       "Strengths": [
-        "柜员服务态度积极配合"
+        "客服服务及时有效",
+        "灵活处理年费问题"
       ],
       "Opportunities": [
-        "申请流程体验不好，审核时间较长"
+        "注意账单自动还款细节"
       ]
     }
   },
   {
     "CreditCardExperience": {
       "CardCosts": {
+        "emotion": 0
+      },
+      "BenefitAllocation": {
         "emotion": 1
+      },
+      "PointsProgram": {
+        "emotion": 0
+      },
+      "ServiceGuarantee": {
+        "emotion": 1
+      },
+      "AppExperience": {
+        "emotion": 0
+      }
+    },
+    "SatisfactionAnalysis": {
+      "SatisfactionScore": 7,
+      "Strengths": [
+        "客户经理服务态度好，提供礼物增加用户体验",
+        "享受到实用的生日权益"
+      ],
+      "Opportunities": [
+        "审核时间较长可能影响用户体验",
+        "部分权益利用率较低，如高尔夫权益"
+      ]
+    }
+  },
+  {
+    "CreditCardExperience": {
+      "CardCosts": {
+        "emotion": 0
       },
       "BenefitAllocation": {
         "emotion": 0
@@ -276,11 +335,10 @@
     "SatisfactionAnalysis": {
       "SatisfactionScore": 7,
       "Strengths": [
-        "快速安检通道",
-        "贵宾厅服务质量"
+        "申请成功"
       ],
       "Opportunities": [
-        "缺少航班提醒功能"
+        "缺少个税和社保信息"
       ]
     }
   }
